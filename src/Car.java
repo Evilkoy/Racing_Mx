@@ -1,7 +1,14 @@
 public class Car {
 
     private String model;
-    private int carCost, rating;
+    private int carCost;
+    private int rating;
+
+    public Car(String model, int carCost, int rating) {
+        this.model = model;
+        this.carCost = carCost;
+        this.rating = rating;
+    }
 
     public void setModel(String model) {
         this.model = model;
@@ -25,12 +32,6 @@ public class Car {
 
     public int getRating() {
         return rating;
-    }
-
-    public Car(String model, int carCost, int rating) {
-        this.model = model;
-        this.carCost = carCost;
-        this.rating = rating;
     }
 
     public static Car getFord() {
