@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Shop {
+public class UpgradeService {
     private HashMap<String, Upgrade> upgrades = new HashMap<>() {{
         put("engine", new Upgrade("Engine", 0, 3000));
         put("gear", new Upgrade("Gear", 0, 3000));

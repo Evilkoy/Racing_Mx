@@ -37,7 +37,7 @@ public class Upgrade {
 
     public Upgrade() {
     }
-    public int getRating(Upgrade upgrade) {
-        return 10 * (2 * upgrade.tier);
+    public int getRating() {
+        return 10 * (2 * tier);
     }
 }
