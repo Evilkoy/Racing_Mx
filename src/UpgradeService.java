@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class UpgradeService {
 
-    public HashMap<String, Upgrade> UpgradesMap() {
+    public HashMap<String, Upgrade> getBasicUpgrades() {
         return new HashMap<>() {{
             put("engine", new Upgrade("Engine", 0, 3000));
             put("gear", new Upgrade("Gear", 0, 3000));
