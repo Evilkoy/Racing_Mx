@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class RandomCars {
+public class CarService {
     private HashMap<Integer, Car> carMap = new HashMap<>() {{
         put(0, Car.getAudi());
         put(1, Car.getBMW());
