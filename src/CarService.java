@@ -11,7 +11,7 @@ public class CarService {
         put(5, Car.getSubaru());
     }};
 
-    public HashSet<Car> getStartedCars() {
+    public HashSet<Car> getStartCars() {
         HashSet<Car> carSet = new HashSet<>();
         while (carSet.size() < 3) {
             carSet.add(carMap.get(randomSix()));
@@ -21,5 +21,9 @@ public class CarService {
 
     private int randomSix() {
         return (int) (Math.random() * 6);
+    }
+
+    public HashMap<Integer, Car> getCarMap() {
+        return carMap;
     }
 }
