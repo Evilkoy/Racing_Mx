@@ -21,6 +21,7 @@ public class StartScreen {
             System.out.println("Your new car is " + startCars.get(i).getModel());
             return startCars.get(i);
         } else {
+            System.out.println("Wrong choise, try again");
             return carChoise();
         }
     }

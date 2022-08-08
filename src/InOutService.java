@@ -6,6 +6,7 @@ public class InOutService {
         if (sc.hasNextLine()) {
             return sc.nextLine();
         } else {
+            System.out.println("Not correct. Enter a word");
             return inputLine();
         }
     }
@@ -15,6 +16,7 @@ public class InOutService {
         if (sc.hasNextInt()) {
             return sc.nextInt();
         } else {
+            System.out.println("Not correct. Enter a number");
             return inputInt();
         }
     }
