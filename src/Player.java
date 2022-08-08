@@ -3,6 +3,15 @@ public class Player {
     private Car myCar;
     private int money;
 
+    public Player(String playerName, int money, Car myCar) {
+        this.playerName = playerName;
+        this.myCar = myCar;
+        this.money = money;
+    }
+
+    public Player() {
+    }
+
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
