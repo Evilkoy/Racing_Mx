@@ -12,17 +12,22 @@ public class StartScreen {
             System.out.println(i + ". " + startCars.get(i).getModel() + " - " + startCars.get(i).getCarCost() + "$");
             i++;
         }
-        return carChoise();
+        return carChoice();
     }
 
-    private Car carChoise() {
+    private Car carChoice() {
         int i = InOutService.inputInt();
         if (0 < i && i < 4) {
             System.out.println("Your new car is " + startCars.get(i).getModel());
             return startCars.get(i);
         } else {
-            System.out.println("Wrong choise, try again");
-            return carChoise();
+            System.out.println("Wrong choice, try again");
+            return carChoice();
         }
+    }
+
+    public void purchaseStartCar(Player player) {
+        player.setMoney(player.getMoney() - player.getMyCar().getCarCost());
+        System.out.println("Available money - "+player.getMoney());
     }
 }

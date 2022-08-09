@@ -3,7 +3,7 @@ public class Player {
     private Car myCar;
     private int money;
 
-    public Player(String playerName, int money, Car myCar) {
+    public Player(String playerName, Car myCar, int money) {
         this.playerName = playerName;
         this.myCar = myCar;
         this.money = money;
