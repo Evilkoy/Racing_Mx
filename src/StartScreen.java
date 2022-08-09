@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class StartScreen {
     private HashMap<Integer, Car> startCars = new HashMap<>();
 
-    public Car showStartCars() {
+    public Player showStartCars(Player player) {
         CarService carService = new CarService();
         System.out.println("Available cars:");
         int i = 1;
@@ -12,22 +12,28 @@ public class StartScreen {
             System.out.println(i + ". " + startCars.get(i).getModel() + " - " + startCars.get(i).getCarCost() + "$");
             i++;
         }
-        return carChoice();
+        return carChoice(player);
     }
 
-    private Car carChoice() {
+    private Player carChoice(Player player) {
         int i = InOutService.inputInt();
         if (0 < i && i < 4) {
-            System.out.println("Your new car is " + startCars.get(i).getModel());
-            return startCars.get(i);
+            return purchaseStartCar(player,startCars.get(i));
         } else {
             System.out.println("Wrong choice, try again");
-            return carChoice();
+            return carChoice(player);
         }
     }
 
-    public void purchaseStartCar(Player player) {
-        player.setMoney(player.getMoney() - player.getMyCar().getCarCost());
-        System.out.println("Available money - "+player.getMoney());
+    public Player purchaseStartCar(Player player, Car car) {
+        if (player.getMoney() >= car.getCarCost()){
+            player.setMoney(player.getMoney() - car.getCarCost());
+            player.setMyCar(car);
+            System.out.println("Your new car is "+car.getModel());
+            return player;
+        }else{
+            System.out.println("Not enough money, make another choice");
+            return carChoice(player);
+        }
     }
 }
