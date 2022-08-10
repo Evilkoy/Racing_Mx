@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class StartScreen {
     private HashMap<Integer, Car> startCars = new HashMap<>();
 
-    public Car showStartCars() {
+    public Player showStartCars(Player player) {
         CarService carService = new CarService();
         System.out.println("Available cars:");
         int i = 1;
@@ -12,17 +12,16 @@ public class StartScreen {
             System.out.println(i + ". " + startCars.get(i).getModel() + " - " + startCars.get(i).getCarCost() + "$");
             i++;
         }
-        return carChoise();
+        return carChoice(player);
     }
 
-    private Car carChoise() {
+    private Player carChoice(Player player) {
         int i = InOutService.inputInt();
         if (0 < i && i < 4) {
-            System.out.println("Your new car is " + startCars.get(i).getModel());
-            return startCars.get(i);
+            return MoneyService.purchaseCar(player,startCars.get(i));
         } else {
-            System.out.println("Wrong choise, try again");
-            return carChoise();
+            System.out.println("Wrong choice, try again");
+            return carChoice(player);
         }
     }
 }

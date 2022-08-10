@@ -1,7 +1,11 @@
 public class PlayerService {
+
     public static Player getNewPlayer() {
         StartScreen startScreen = new StartScreen();
+        Player player = new Player();
         System.out.println("Enter your name");
-        return new Player(InOutService.inputLine(), 20000, startScreen.showStartCars());
+        player.setMoney(20000);
+        player.setPlayerName(InOutService.inputLine());
+        return startScreen.showStartCars(player);
     }
 }
