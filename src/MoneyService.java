@@ -1,5 +1,5 @@
 public class MoneyService {
-    public static Player purchaseStartCar(Player player, Car car) {
+    public static Player purchaseCar(Player player, Car car) {
         if (player.getMoney() >= car.getCarCost()){
             player.setMoney(player.getMoney() - car.getCarCost());
             player.setMyCar(car);

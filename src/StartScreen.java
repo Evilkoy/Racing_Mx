@@ -18,7 +18,7 @@ public class StartScreen {
     private Player carChoice(Player player) {
         int i = InOutService.inputInt();
         if (0 < i && i < 4) {
-            return MoneyService.purchaseStartCar(player,startCars.get(i));
+            return MoneyService.purchaseCar(player,startCars.get(i));
         } else {
             System.out.println("Wrong choice, try again");
             return carChoice(player);
