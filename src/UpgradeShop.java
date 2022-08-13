@@ -1,9 +1,9 @@
 import java.util.HashMap;
 
 public class UpgradeShop {
-    HashMap<Integer, Upgrade> upgrades;
+    private HashMap<Integer, Upgrade> upgrades;
 
-    void setBasicUpgrades(Player player) {
+    public void setBasicUpgrades(Player player) {
         upgrades = UpgradeService.getBasicUpgrades();
         message(player);
     }
@@ -20,11 +20,15 @@ public class UpgradeShop {
         upgradeChoice(player);
     }
 
-    public void upgradeChoice(Player player) {
+    private void upgradeChoice(Player player) {
         int i = InOutService.inputInt();
         if (i > 0 && i < 6) {
-            upgrades.put(i, MoneyService.purchaseUpgrade(player, upgrades.get(i)));
-            message(player);
+            try {
+                upgrades.put(i, MoneyService.purchaseUpgrade(player, upgrades.get(i)));
+                message(player);
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         } else if (i > 6) {
             System.out.println("Not correct, make another choice");
             upgradeChoice(player);
