@@ -1,5 +1,5 @@
 public class MoneyService {
-    public static Player purchaseCar(Player player, Car car) throws CantBuyException {
+    public static Player purchaseCar(Player player, Car car) {
         if (player.getMoney() < car.getCarCost())
             throw new CantBuyException("Not enough money, make another choice");
         player.setMoney(player.getMoney() - car.getCarCost());
@@ -8,7 +8,7 @@ public class MoneyService {
         return player;
     }
 
-    public static Upgrade purchaseUpgrade(Player player, Upgrade upgrade) throws CantBuyException {
+    public static Upgrade purchaseUpgrade(Player player, Upgrade upgrade) {
         if (player.getMoney() < upgrade.getCost())
             throw new CantBuyException("Not enough money");
         if (upgrade.getTier() == 3)

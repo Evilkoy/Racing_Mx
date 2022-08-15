@@ -28,6 +28,7 @@ public class UpgradeShop {
                 message(player);
             } catch (CantBuyException exception) {
                 System.out.println(exception.getMessage());
+                upgradeChoice(player);
             }
         } else if (i > 6) {
             System.out.println("Not correct, make another choice");
