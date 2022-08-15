@@ -20,8 +20,8 @@ public class StartScreen {
         if (0 < i && i < 4) {
             try {
                 return MoneyService.purchaseCar(player, startCars.get(i));
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+            } catch (CantBuyException exception) {
+                System.out.println(exception.getMessage());
                 return carChoice(player);
             }
         } else {
