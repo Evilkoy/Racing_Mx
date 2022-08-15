@@ -18,7 +18,12 @@ public class StartScreen {
     private Player carChoice(Player player) {
         int i = InOutService.inputInt();
         if (0 < i && i < 4) {
-            return MoneyService.purchaseCar(player,startCars.get(i));
+            try {
+                return MoneyService.purchaseCar(player, startCars.get(i));
+            } catch (CantBuyException exception) {
+                System.out.println(exception.getMessage());
+                return carChoice(player);
+            }
         } else {
             System.out.println("Wrong choice, try again");
             return carChoice(player);
