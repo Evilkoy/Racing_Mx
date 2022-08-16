@@ -12,10 +12,10 @@ public class UpgradeShop {
         int i = 1;
         System.out.println("Your modifications, you can choose one for upgrade");
         for (Upgrade list : upgrades.values()) {
-            System.out.println(i + ". " + list.getType() + " T" + list.getTier());
+            System.out.println(i + ". " + list.getType() + " T" + list.getTier() + " - " + list.getCost() + "$");
             i++;
         }
-        System.out.println("6. Close tuning menu");
+        System.out.println("6. Go to race");
         System.out.println("Make your choice");
         upgradeChoice(player);
     }
