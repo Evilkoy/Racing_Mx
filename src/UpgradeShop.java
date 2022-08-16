@@ -1,17 +1,11 @@
 import java.util.HashMap;
 
 public class UpgradeShop {
-    private HashMap<Integer, Upgrade> upgrades;
-
-    public void setBasicUpgrades(Player player) {
-        upgrades = UpgradeService.getBasicUpgrades();
-        message(player);
-    }
 
     public void message(Player player) {
         int i = 1;
         System.out.println("Your modifications, you can choose one for upgrade");
-        for (Upgrade list : upgrades.values()) {
+        for (Upgrade list : player.getMyCar().getUpgrades().values()) {
             System.out.println(i + ". " + list.getType() + " T" + list.getTier() + " - " + list.getCost() + "$");
             i++;
         }
@@ -21,10 +15,11 @@ public class UpgradeShop {
     }
 
     private void upgradeChoice(Player player) {
+        Car playersCar = player.getMyCar();
         int i = InOutService.inputInt();
         if (i > 0 && i < 6) {
             try {
-                upgrades.put(i, MoneyService.purchaseUpgrade(player, upgrades.get(i)));
+                playersCar.putUpgrade(i, MoneyService.purchaseUpgrade(player, playersCar.getUpgrades().get(i)));
                 message(player);
             } catch (CantBuyException exception) {
                 System.out.println(exception.getMessage());
@@ -36,9 +31,9 @@ public class UpgradeShop {
         }
     }
 
-    public int getRatings() {
+    public int getRatings(Player player) {
         int sum = 0;
-        for (Upgrade list : upgrades.values()) {
+        for (Upgrade list : player.getMyCar().getUpgrades().values()) {
             sum += list.getRating();
         }
         return sum;

@@ -4,8 +4,8 @@ public class Race {
     public void race(Player player, int upgradeRating) {
         int pos = getPosition(player, upgradeRating);
         System.out.println("Your position is " + pos + "/12");
-        player.setMoney(player.getMoney() + (2000 + (3000 / pos)));
-        System.out.println("Your reward: " + (2000 + (3000 / pos)) + "$");
+        player.setMoney(player.getMoney() + (3000 + (3000 / pos)));
+        System.out.println("Your reward: " + (3000 + (3000 / pos)) + "$");
         if (raceRate < 370) {
             raceRate += 30;
         }
