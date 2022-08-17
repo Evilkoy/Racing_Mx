@@ -4,7 +4,7 @@ public class PlayerService {
         StartScreen startScreen = new StartScreen();
         Player player = new Player();
         System.out.println("Enter your name");
-        player.setMoney(20000);
+        player.setMoney(15000);
         player.setPlayerName(InOutService.inputLine());
         return startScreen.showStartCars(player);
     }

@@ -22,6 +22,9 @@ public class Player {
 
     public void setMoney(int money) {
         this.money = money;
+        if (this.money < 0) {
+            this.money = 0;
+        }
     }
 
     public String getPlayerName() {

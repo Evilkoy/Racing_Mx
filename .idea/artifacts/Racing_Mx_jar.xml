@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Racing_Mx:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Racing_Mx_jar</output-path>
+    <root id="archive" name="Racing_Mx.jar">
+      <element id="module-output" name="Racing_Mx" />
+    </root>
+  </artifact>
+</component>
