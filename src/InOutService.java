@@ -20,4 +20,9 @@ public class InOutService {
             return inputInt();
         }
     }
+
+    public static void pause() {
+        System.out.println("Press Enter To Continue...");
+        new Scanner(System.in).nextLine();
+    }
 }
